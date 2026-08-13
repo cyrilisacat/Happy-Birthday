@@ -24,17 +24,8 @@ const acceptBtn = document.getElementById('accept-btn');
 const declineBtn = document.getElementById('decline-btn');
 
 // Page 2 Elements
-const nameInput = document.getElementById('name-input');
-const messageInput = document.getElementById('message-input');
-const bg1Input = document.getElementById('bg1-input');
-const bg2Input = document.getElementById('bg2-input');
-const accentInput = document.getElementById('accent-input');
 const birthdayName = document.getElementById('birthday-name');
 const birthdayMessage = document.getElementById('birthday-message');
-const applyButton = document.getElementById('apply-design');
-const customizerToggle = document.getElementById('customizer-toggle');
-const closeCustomizer = document.getElementById('close-customizer');
-const customizerPanel = document.getElementById('customizer');
 
 let backgroundAudio = null;
 let musicEnabled = false;
@@ -103,35 +94,7 @@ function setDesign(data) {
   birthdayMessage.innerHTML = paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
 }
 
-function syncFormValues(data) {
-  nameInput.value = data.name;
-  messageInput.value = data.message;
-  bg1Input.value = data.bg1;
-  bg2Input.value = data.bg2;
-  accentInput.value = data.accent;
-}
 
-function applyDesign() {
-  const customData = {
-    name: nameInput.value.trim() || defaultData.name,
-    message: messageInput.value.trim() || defaultData.message,
-    bg1: bg1Input.value || defaultData.bg1,
-    bg2: bg2Input.value || defaultData.bg2,
-    accent: accentInput.value || defaultData.accent,
-  };
-
-  syncFormValues(customData);
-  setDesign(customData);
-  closeCustomizerPanel();
-}
-
-function openCustomizerPanel() {
-  customizerPanel.classList.add('show');
-}
-
-function closeCustomizerPanel() {
-  customizerPanel.classList.remove('show');
-}
 
 // Page Navigation
 function goToPage(pageNum) {
@@ -212,19 +175,6 @@ function handleDecline() {
 acceptBtn.addEventListener('click', () => goToPage(2));
 declineBtn.addEventListener('click', handleDecline);
 
-// Event Listeners - Page 2 Controls
-applyButton.addEventListener('click', applyDesign);
-customizerToggle.addEventListener('click', openCustomizerPanel);
-closeCustomizer.addEventListener('click', closeCustomizerPanel);
-
-// Close customizer when clicking outside
-customizerPanel.addEventListener('click', (e) => {
-  if (e.target === customizerPanel) {
-    closeCustomizerPanel();
-  }
-});
-
 // Initialize
-syncFormValues(defaultData);
 setDesign(defaultData);
 autoPlayEvilLaugh();
