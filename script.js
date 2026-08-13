@@ -102,9 +102,15 @@ function setDesign(data) {
   birthdayMessage.innerHTML = paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
 }
 
-
-
-// PautoPlayEvilLaugh();
+// Page Navigation
+function goToPage(pageNum) {
+  if (pageNum === 1) {
+    page2.classList.remove('active');
+    requestAnimationFrame(() => {
+      page1.classList.add('active');
+    });
+    stopBackgroundMusic();
+    autoPlayEvilLaugh();
     document.body.style.backgroundImage = 'none';
     document.body.style.background = `
       repeating-linear-gradient(45deg, rgba(255, 182, 193, 0.3), rgba(255, 182, 193, 0.3) 10px, transparent 10px, transparent 20px),
@@ -116,15 +122,7 @@ function setDesign(data) {
     requestAnimationFrame(() => {
       page2.classList.add('active');
     });
-    stopEvilLaugh( repeating-linear-gradient(45deg, rgba(255, 182, 193, 0.3), rgba(255, 182, 193, 0.3) 10px, transparent 10px, transparent 20px),
-      repeating-linear-gradient(-45deg, rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.3) 10px, transparent 10px, transparent 20px),
-      repeating-conic-gradient(from 45deg at 20% 30%, rgba(255, 215, 0, 0.25) 0deg 90deg, rgba(255, 192, 203, 0.25) 90deg 180deg, rgba(135, 206, 250, 0.25) 180deg 270deg, rgba(221, 160, 221, 0.25) 270deg 360deg)
-    `;
-  } else if (pageNum === 2) {
-    page1.classList.remove('active');
-    requestAnimationFrame(() => {
-      page2.classList.add('active');
-    });
+    stopEvilLaugh();
     document.body.style.backgroundImage = "url('background.jpeg')";
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
