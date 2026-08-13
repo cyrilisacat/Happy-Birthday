@@ -1,0 +1,336 @@
+:root {
+  --bg1: #FFE66D;
+  --bg2: #87CEEB;
+  --bg3: #FFF6B3;
+  --bg4: #BEE7FF;
+  --accent: #FF6B9D;
+  --text: #333;
+  --text-light: #666;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #FFFACD 0%, #FFB6D9 50%, #ADD8E6 100%);
+  background-attachment: fixed;
+  transition: opacity 0.8s;
+}
+
+@keyframes skyMove {
+  0% { background-position: left; }
+  50% { background-position: right; }
+  100% { background-position: left; }
+}
+
+/* BACKGROUND ELEMENTS */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sun {
+  display: none;
+}
+
+.cloud {
+  display: none;
+}
+
+.sparkle {
+  display: none;
+}
+
+/* CARD */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: scale(0.98);
+  z-index: 10;
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+#page-2 {
+  background: url('Surprise!%20You\'ve%20been%20chinese\'d%20jkkk.png') 0 0/cover no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 0 0;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  padding: 3rem 2.5rem;
+  max-width: 500px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 3px solid rgba(255, 182, 193, 0.4);
+  text-align: center;
+  animation: cardBounce 0.8s ease-out;
+}
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  max-width: 800px;
+  padding: 1.8rem;
+  width: 88vw;
+}
+
+.birthday-video {
+  width: 220px;
+  height: 220px;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+@keyframes cardBounce {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.card h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 2.5rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.card .message {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.card .message p {
+  margin-bottom: 1rem;
+}
+
+.card .message p:last-child {
+  margin-bottom: 0;
+}
+
+.media-card .message {
+  flex: 1;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 1rem;
+  text-align: left;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B9D, #FF85B0);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.5);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.4), rgba(173, 216, 230, 0.4));
+  color: var(--text);
+  border: 2px solid rgba(255, 107, 157, 0.3);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.6), rgba(173, 216, 230, 0.6));
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* CUSTOMIZER */
+.customizer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.customizer.show {
+  display: flex;
+}
+
+.customizer-content {
+  background: white;
+  border-radius: 25px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.customizer-content h2 {
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.color-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.color-input-group label {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.color-input-group input[type="color"] {
+  width: 100%;
+  height: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.customizer-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.customizer-buttons .btn {
+  flex: 1;
+}
+
+.btn.btn-secondary:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .card h1 {
+    font-size: 2rem;
+  }
+  
+  .customizer-content {
+    padding: 1.5rem;
+  }
+}
+

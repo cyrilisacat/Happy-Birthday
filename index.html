@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- BACKGROUND -->
+    <div class="background">
+        <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="sparkle s1"></div>
+        <div class="sparkle s2"></div>
+        <div class="sparkle s3"></div>
+        <div class="sparkle s4"></div>
+    </div>
+
+    <!-- PAGE 1: ACCEPTANCE PAGE -->
+    <div id="page-1" class="page active">
+        <div class="card">
+                <h1>Yoohooo!!! Hello, Bam Aquino :)</h1>
+                <p class="message">
+                    Surprise! You've been chinese'd jkkk
+                </p>
+                <div class="button-group">
+                    <button id="accept-btn" class="btn btn-primary">YES NA YES FOR YOU ✨</button>
+                    <button id="decline-btn" class="btn btn-secondary">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: MAIN MESSAGE PAGE -->
+    <div id="page-2" class="page">
+        <div class="card media-card">
+                <video id="birthday-video" class="birthday-video" autoplay muted loop playsinline>
+                    <source src="video.mp4" type="video/mp4" />
+                </video>
+                <div>
+                    <h1 id="birthday-name">Happy Birthday, Bud! 🎉</h1>
+                    <div id="birthday-message" class="message">
+                        <p>Ni hao unsa mani xiao long bao! Yes, uh, I would like to greet you da happy birthday And wish you a, wah the best of everything. Sorry I'm not a speaking straighting But I'm just adjusting hahahahahhahahahahahahhahahahahahha charot. Sana gets mo yung reference kasi kung hindi, edi wag 😡</p>
+
+                        <p>Ito na seeruse na talaga ahahahha</p>
+
+                        <p>May every moment be filled with joy, laughter, and love on your special day. I want you to know that I am always here for you because life is better with you in it. (Hindi 'yan makasagot siguro lomoloha na 'yan sha hahahahhahahaha)</p>
+
+                        <p>Happy Birthday, bruvvaa!</p>
+
+                        <p>P.S. Feel ko after ni'to, ililibre mo'ko, feel ko lang naman...<br>
+                        P.P.S What if panoorin mo na yung reels na sinesend ko sa tiktok?! 😞😞😞</p>
+                    </div>
+                    <div class="button-group">
+                        <button id="customizer-toggle" class="btn btn-secondary">✨ Customize</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOMIZER PANEL -->
+    <div id="customizer" class="customizer">
+        <div class="customizer-content">
+            <h2>Customize Your Birthday Page</h2>
+            
+            <div class="form-group">
+                <label for="name-input">Birthday Person's Name</label>
+                <input id="name-input" type="text" value="Dear" maxlength="40" placeholder="Enter name">
+            </div>
+
+            <div class="form-group">
+                <label for="message-input">Personal Message</label>
+                <textarea id="message-input" rows="5" placeholder="Enter your message">Wishing you a year filled with laughter, love, unforgettable memories, and endless joy.</textarea>
+            </div>
+
+            <div class="color-grid">
+                <div class="color-input-group">
+                    <label for="bg1-input">Sky Start</label>
+                    <input id="bg1-input" type="color" value="#FFE66D">
+                </div>
+                <div class="color-input-group">
+                    <label for="bg2-input">Sky End</label>
+                    <input id="bg2-input" type="color" value="#87CEEB">
+                </div>
+                <div class="color-input-group">
+                    <label for="accent-input">Accent</label>
+                    <input id="accent-input" type="color" value="#FF6B9D">
+                </div>
+            </div>
+
+            <div class="customizer-buttons">
+                <button id="apply-design" class="btn btn-primary">Apply Design</button>
+                <button id="close-customizer" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
